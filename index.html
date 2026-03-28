@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIFF P2P じゃんけん</title>
+    <script src="https://unpkg.com"></script>
+    <script src="https://static.line-scdn.net"></script>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; background: #f0f2f5; color: #333; padding: 20px; }
+        .card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 400px; margin: 0 auto; }
+        .my-id { font-size: 1.5rem; font-weight: bold; color: #00b900; margin: 10px 0; letter-spacing: 2px; }
+        input { padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 60%; margin-bottom: 10px; }
+        button { padding: 10px 20px; border: none; border-radius: 5px; background: #00b900; color: white; cursor: pointer; font-weight: bold; }
+        .btn-hand { font-size: 3rem; background: none; border: 2px solid #eee; border-radius: 15px; margin: 5px; transition: 0.2s; width: 80px; height: 80px; }
+        .btn-hand:active { background: #e8f5e9; transform: scale(0.9); }
+        #status { margin: 20px 0; font-weight: bold; color: #666; }
+        #result { font-size: 1.2rem; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>じゃんけん対戦</h2>
+    
+    <div id="setup-area">
+        <p>あなたの対戦ID</p>
+        <div id="my-id-display" class="my-id">発行中...</div>
+        <hr>
+        <p>相手のIDを入力して接続</p>
+        <input type="text" id="remote-id" placeholder="1234-56">
+        <button onclick="connectToPeer()">対戦開始</button>
+    </div>
+
+    <div id="game-area" style="display:none;">
+        <p id="status">相手と接続されました！<br>手を選んでください。</p>
+        <button class="btn-hand" onclick="sendHand('✊')">✊</button>
+        <button class="btn-hand" onclick="sendHand('✌️')">✌️</button>
+        <button class="btn-hand" onclick="sendHand('🖐️')">🖐️</button>
+        <div id="result"></div>
+        <button style="margin-top:20px; background:#666;" onclick="location.reload()">もう一度（リロード）</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
