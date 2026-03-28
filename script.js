@@ -1,4 +1,4 @@
-const LIFF_ID = "2009264673-Gyv71UJI"; // あなたのLIFF ID
+const LIFF_ID = "2009264673-Gyv71UJl"; // あなたのLIFF ID
 let peer = null;
 let conn = null;
 let myHand = "";
